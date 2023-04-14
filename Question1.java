@@ -1,48 +1,44 @@
-package lab_question;
+/* Q.1 Create an abstract class called "Shape" with an abstract method called "calculateArea".
+ *  Create two subclasses called "Circle" and "Rectangle" that inherit from Shape and implement the "calculateArea" method. 
+ * Create objects of both the Circle and Rectangle classes and call their respective "calculateArea" methods.*/
 
-class Vehicle //class
-{
-    String brand;
-    String model;
-    int year;
-    
-    public Vehicle(String brand, String model, int year) //passing the parameters in vehicle constructor
-    {
-        this.brand = brand;
-        this.model = model;
-        this.year = year;
-    }
-    
-    public void drive()//drive method 
-    {
-    	System.out.println("In drive method ");
-        System.out.println( this.brand + " " + this.model + " (" + this.year + ") is driving ");
-    }
+package lab;
+
+abstract class Shape{
+	 abstract void calculateArea();
+			
 }
 
-class Car extends Vehicle //car class extending vehicle class
-{
-    String color;
-    
-    public Car(String brand, String model, int year, String color)//passing the parameters in car constructor
-    {
-        super(brand, model, year);
-        this.color = color;
-    }
-    
-    public void honk() //honk method
-    {
-    	System.out.println("In Honk method ");
-        System.out.println(this.brand + " " + this.model + " (" + this.year + ") is honking ");
-    }
-}
+class Circle extends Shape
+{ 
 
-public class Question1 //main class
-{
-	public static void main(String[] args)//main method 
+	@Override
+	void calculateArea() 
 	{
-        Car myCar = new Car("Maruti", "swift", 2022, "Blue");//creating object
-        myCar.drive();//calling the method with object 
-        myCar.honk();//calling the method with object 
+		int radius=5;
+	double area= ((radius*radius)*3.14);;
+		
+		System.out.println("Area of circle is:- "+area);
+		
+	}}
+	
+class Rectangle extends Shape
+{
+
+	@Override
+	void calculateArea() {
+		int lenght=5,width=8;
+		int area=lenght*width;
+		System.out.println("Area of Rectangle is:-"+area);	
+	}}
+	
+public class Question1 {
+
+	public static void main(String[] args) {
+		Circle c= new Circle();
+		c.calculateArea();
+		Rectangle r = new Rectangle();
+		r.calculateArea();
 	}
+
 }
